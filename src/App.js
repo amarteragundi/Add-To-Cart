@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { connect } from "react-redux";
+import "./App.scss";
 
-function App() {
+//constants
+import { HOMEPAGE } from "./consts";
+
+//containers
+import HomePage from "./containers/HomePage";
+import Cart from "./containers/Cart";
+
+import logo from "./logo.svg";
+const App = ({ selectedPage }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="menu">
+        <img src={logo} className="menu--logo" alt="logo" />
+      </div>
+      {selectedPage === HOMEPAGE ? <HomePage /> : <Cart />}
+    </>
   );
-}
+};
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    selectedPage: state.selectedPage.selectedPage
+  };
+};
+
+export default connect(mapStateToProps, {})(App);
