@@ -6,7 +6,6 @@ import {
 } from "../consts";
 
 export default (state = [], action) => {
-  debugger;
   switch (action.type) {
     case PRODUCTS_LIST: {
       return [...action.data.items];

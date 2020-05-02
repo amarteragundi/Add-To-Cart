@@ -1,4 +1,4 @@
-import { put, takeLatest, all, call } from "redux-saga/effects";
+import { put, all, call } from "redux-saga/effects";
 import { PRODUCTS_LIST } from "../consts";
 
 function* fetchProducts() {

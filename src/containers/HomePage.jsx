@@ -4,20 +4,31 @@ import {
   fetchProducts,
   sortLowToHigh,
   sortHighToLow,
-  sortByDiscount
+  sortByDiscount,
+  addToCart
 } from "../actions";
 import { fetchProductsSelector } from "../selectors/productSelector";
+
+// import utils
+import { filterProductsBySearch } from "../utils";
 
 const HomePage = ({
   productList = [],
   sortLowToHigh,
   sortHighToLow,
-  sortByDiscount
+  sortByDiscount,
+  searchTerm,
+  addToCart
 }) => {
-  debugger;
+  const productsToShow =
+    searchTerm.length > 0
+      ? filterProductsBySearch(productList, searchTerm)
+      : productList;
+
   return (
     <>
       <div>
+        <b>Sort By </b>
         <span onClick={() => sortLowToHigh()}>low to high</span>{" "}
         <span onClick={() => sortHighToLow()}>high to low</span>{" "}
         <span onClick={() => sortByDiscount()}>Discount</span>
@@ -28,34 +39,42 @@ const HomePage = ({
             display: "flex",
             "flex-wrap": "wrap",
             width: "100%"
+            // justifyContent: "center",
+            // alignItems: "center"
           }}>
-          {productList.length > 0
-            ? productList.map((product, i) => (
-                <div
-                  style={{
-                    width: "25%"
-                  }}>
-                  <img
-                    src={product.image}
-                    style={{ maxHeight: "200px" }}
-                    alt="test"
-                  />
-                  <div>
-                    <b>{product.name}</b>
-                  </div>
-                  <div>
-                    &#x20B9;{product.price.actual}{" "}
-                    <span style={{ textDecoration: "line-through" }}>
-                      {product.price.display}
-                    </span>{" "}
-                    {product.discount}% off
-                  </div>
-                  <div>
-                    <button>Add To Cart</button>
-                  </div>
+          {productsToShow?.length > 0 ? (
+            productsToShow.map((product, i) => (
+              <div
+                style={{
+                  width: "25%"
+                }}>
+                <img
+                  src={product.image}
+                  style={{ maxHeight: "200px" }}
+                  alt="test"
+                />
+                <div>
+                  <b>{product.name}</b>
                 </div>
-              ))
-            : "Loading..."}
+                <div>
+                  <b>&#x20B9;{product.price.actual}</b>{" "}
+                  <span style={{ textDecoration: "line-through" }}>
+                    {product.price.display}
+                  </span>{" "}
+                  <span style={{ color: "#53ae38" }}>
+                    <b>{product.discount}% off</b>
+                  </span>
+                </div>
+                <div>
+                  <button onClick={() => addToCart(product)}>
+                    Add To Cart
+                  </button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div>No Products to display</div>
+          )}
         </div>
       </div>
     </>
@@ -64,7 +83,8 @@ const HomePage = ({
 
 const mapStateToProps = state => {
   return {
-    productList: fetchProductsSelector(state)
+    productList: fetchProductsSelector(state),
+    searchTerm: state.searchTerm
   };
 };
 
@@ -72,7 +92,8 @@ const mapDispatchToProps = {
   fetchProducts,
   sortLowToHigh,
   sortHighToLow,
-  sortByDiscount
+  sortByDiscount,
+  addToCart
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
