@@ -12,16 +12,25 @@ const Slider = ({ filterByPrice, range }) => {
   };
   return (
     <>
+      <div className="sidebar__sliderLabel">
+        &#x20B9;6000
+        <span className="float-right">&#x20B9;100000</span>
+      </div>
       <RangeSlider
         defaultValue={defaultValue}
         valueLabelDisplay="auto"
         step={10}
-        min={8000}
+        min={6000}
         max={100000}
-        style={{ width: "80%", margin: "20px" }}
+        style={{ width: "70%", marginLeft: "30px" }}
         onChange={handleChange}
       />
-      <div onClick={() => filterByPrice(defaultValue)}>Submit</div>
+      <div className="sidebar__sliderLabel--bottom">Price</div>
+      <div
+        onClick={() => filterByPrice(defaultValue)}
+        className="sidebar__button">
+        Apply
+      </div>
     </>
   );
 };

@@ -22,47 +22,35 @@ const ProductList = ({
       : sortedProductList;
   return (
     <>
-      <div className="productlist">
-        <div
-          style={{
-            display: "flex",
-            "flex-wrap": "wrap",
-            width: "100%"
-            // justifyContent: "center",
-            // alignItems: "center"
-          }}>
+      <div>
+        <div className="productList">
           {productsToShow?.length > 0 ? (
             productsToShow.map((product, i) => (
-              <div
-                style={{
-                  width: "25%"
-                }}>
-                <img
-                  src={product.image}
-                  style={{ maxHeight: "200px" }}
-                  alt="test"
-                />
-                <div>
-                  <b>{product.name}</b>
-                </div>
-                <div>
+              <div className="productList__Item" key={i}>
+                <img src={product.image} alt="test" />
+                <div className="productList__Title">{product.name}</div>
+                <div className="productList__Price">
                   <b>&#x20B9;{product.price.actual}</b>{" "}
-                  <span style={{ textDecoration: "line-through" }}>
+                  <span className="productList__Price productList__Price--display">
                     {product.price.display}
-                  </span>{" "}
-                  <span style={{ color: "#53ae38" }}>
+                  </span>
+                  <span className="productList__Price productList__Price--discount">
                     <b>{product.discount}% off</b>
                   </span>
                 </div>
                 <div>
-                  <button onClick={() => addToCart(product)}>
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="productList__button ">
                     Add To Cart
                   </button>
                 </div>
               </div>
             ))
           ) : (
-            <div>No Products to display</div>
+            <div className="productList__noproducts">
+              No Products to display
+            </div>
           )}
         </div>
       </div>
