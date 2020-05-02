@@ -23,7 +23,6 @@ export const calculateTotalItem = cartItems =>
   cartItems.map(item => item.quantity).reduce((total, num) => total + num, 0);
 
 export const sortProducts = (products, sortType) => {
-  debugger;
   switch (sortType) {
     case LOW_TO_HIGH: {
       const lowToHighSorted = products.sort((a, b) =>
@@ -47,3 +46,9 @@ export const sortProducts = (products, sortType) => {
       return products;
   }
 };
+
+export const fiterByPrice = (products, range) =>
+  products.filter(
+    product =>
+      product.price.actual > range.min && product.price.actual < range.max
+  );

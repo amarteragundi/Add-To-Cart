@@ -3,9 +3,7 @@ import React from "react";
 //components
 import SortBar from "../components/Sort";
 import ProductList from "../components/ProductList";
-
-// import utils
-import Slider from "@material-ui/core/Slider";
+import Slider from "../components/Slider";
 
 // css
 import "./css/homepage.scss";

@@ -1,14 +1,12 @@
 import {
   FETCH_PRODUCTS,
-  LOW_TO_HIGH,
-  HIGH_TO_LOW,
-  SORT_BY_DISCOUNT,
   SEARCH_TERM,
   SELECTED_PAGE,
   CART_ITEMS,
   REMOVE_ITEM,
   MODIFY_QUANTITY,
-  SORT_TYPE
+  SORT_TYPE,
+  PRICE_RANGE
 } from "../consts";
 
 export const fetchProducts = () => {
@@ -23,22 +21,6 @@ export const setSort = sort => {
     payLoad: sort
   };
 };
-
-export const sortLowToHigh = () => {
-  return {
-    type: LOW_TO_HIGH
-  };
-};
-export const sortHighToLow = () => {
-  return {
-    type: HIGH_TO_LOW
-  };
-};
-export const sortByDiscount = () => {
-  return {
-    type: SORT_BY_DISCOUNT
-  };
-};
 export const searchProduct = term => {
   return {
     type: SEARCH_TERM,
@@ -49,6 +31,16 @@ export const switchPage = page => {
   return {
     type: SELECTED_PAGE,
     payLoad: page
+  };
+};
+
+export const filterByPrice = range => {
+  return {
+    type: PRICE_RANGE,
+    payLoad: {
+      min: range[0],
+      max: range[1]
+    }
   };
 };
 

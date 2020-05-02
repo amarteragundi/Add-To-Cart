@@ -5,10 +5,17 @@ import { addToCart } from "../actions";
 import { fetchProductsSelector } from "../selectors/productSelector";
 
 // import utils
-import { filterProductsBySearch, sortProducts } from "../utils";
+import { filterProductsBySearch, sortProducts, fiterByPrice } from "../utils";
 
-const ProductList = ({ productList = [], searchTerm, addToCart, sortType }) => {
-  const sortedProductList = sortProducts(productList, sortType);
+const ProductList = ({
+  productList = [],
+  searchTerm,
+  addToCart,
+  sortType,
+  priceRange
+}) => {
+  const priceFiltered = fiterByPrice(productList, priceRange);
+  const sortedProductList = sortProducts(priceFiltered, sortType);
   const productsToShow =
     searchTerm.length > 0
       ? filterProductsBySearch(sortedProductList, searchTerm)
@@ -67,7 +74,8 @@ const mapStateToProps = state => {
   return {
     productList: fetchProductsSelector(state),
     searchTerm: state.searchTerm,
-    sortType: state.sort
+    sortType: state.sort,
+    priceRange: state.priceRange
   };
 };
 
