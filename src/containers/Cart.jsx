@@ -1,7 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { removeFromCart, modifyQuantity } from "../actions";
-import { calculateTotal } from "../utils";
+import {
+  calculateTotal,
+  calculateTotalDiscount,
+  calculateTotalDisplay,
+  calculateTotalItem
+} from "../utils";
 
 const Cart = ({ cartItems, removeFromCart, modifyQuantity }) => {
   return (
@@ -35,7 +40,16 @@ const Cart = ({ cartItems, removeFromCart, modifyQuantity }) => {
             ))
         : "No items in cart"}
       <br />
-      {cartItems?.length > 0 ? `Total = ${calculateTotal(cartItems)}` : null}
+      {cartItems?.length > 0 ? (
+        <div>
+          Price({calculateTotalItem(cartItems)} Item(s)) ={" "}
+          {calculateTotalDisplay(cartItems)}
+          <br />
+          Discount = {calculateTotalDiscount(cartItems)}
+          <br />
+          Total = {calculateTotal(cartItems)}
+        </div>
+      ) : null}
     </div>
   );
 };

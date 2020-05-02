@@ -1,0 +1,29 @@
+$menuBackground: #4269ea;
+$white: #fff;
+
+.menu {
+  background-color: $menuBackground;
+  padding: 15px;
+}
+
+.menu--logo {
+  max-width: 30px;
+}
+
+.menu--search {
+  background: none;
+  border: none;
+  border-bottom: 1px solid $white;
+  width: 300px;
+  color: $white;
+  font-size: 14px;
+
+  &::placeholder {
+    color: $white;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+@mixin placeholder {
+}

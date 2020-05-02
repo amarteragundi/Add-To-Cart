@@ -1,10 +1,8 @@
-$menuBackground: #4269ea;
-
-.menu {
-  background-color: $menuBackground;
-  padding: 15px;
+@font-face {
+  font-family: "Verdana";
+  src: local("Verdana"), url(./fonts/Verdana.woff) format("woff");
 }
 
-.menu--logo {
-  max-width: 30px;
+* {
+  font-family: "Verdana";
 }

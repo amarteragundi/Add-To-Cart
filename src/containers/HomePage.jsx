@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import {
   fetchProducts,
   sortLowToHigh,
@@ -11,6 +12,7 @@ import { fetchProductsSelector } from "../selectors/productSelector";
 
 // import utils
 import { filterProductsBySearch } from "../utils";
+import Slider from "@material-ui/core/Slider";
 
 const HomePage = ({
   productList = [],
@@ -24,10 +26,17 @@ const HomePage = ({
     searchTerm.length > 0
       ? filterProductsBySearch(productList, searchTerm)
       : productList;
-
   return (
     <>
       <div>
+        <Slider
+          defaultValue={[8000, 100000]}
+          valueLabelDisplay="auto"
+          step={10}
+          min={8000}
+          max={100000}
+          style={{ width: "300px", margin: "20px" }}
+        />
         <b>Sort By </b>
         <span onClick={() => sortLowToHigh()}>low to high</span>{" "}
         <span onClick={() => sortHighToLow()}>high to low</span>{" "}
