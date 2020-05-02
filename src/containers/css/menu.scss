@@ -4,10 +4,15 @@ $white: #fff;
 .menu {
   background-color: $menuBackground;
   padding: 15px;
+  line-height: 25px;
 }
 
 .menu--logo {
   max-width: 30px;
+}
+
+.menu--rightsection {
+  float: right;
 }
 
 .menu--search {
@@ -17,6 +22,7 @@ $white: #fff;
   width: 300px;
   color: $white;
   font-size: 14px;
+  margin-right: 10px;
 
   &::placeholder {
     color: $white;
@@ -25,5 +31,17 @@ $white: #fff;
   }
 }
 
-@mixin placeholder {
+.maenu--cartBadge {
+  background-color: #ff0000;
+  position: absolute;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 10px;
+  font-weight: bold;
+  color: $white;
+  right: -5px;
+  top: -5px;
 }

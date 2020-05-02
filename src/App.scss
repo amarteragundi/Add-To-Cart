@@ -1,3 +1,5 @@
+$pagebackground: #f1f3f6;
+
 @font-face {
   font-family: "Verdana";
   src: local("Verdana"), url(./fonts/Verdana.woff) format("woff");
@@ -5,4 +7,8 @@
 
 * {
   font-family: "Verdana";
+}
+
+body {
+  background-color: $pagebackground;
 }

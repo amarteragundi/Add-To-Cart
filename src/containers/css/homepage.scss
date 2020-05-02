@@ -1,0 +1,34 @@
+$menuBackground: #4269ea;
+.sidebar {
+  width: 20%;
+  float: left;
+
+  h3 {
+    padding-left: 20px;
+  }
+}
+
+.wrapper {
+  width: 80%;
+  float: left;
+
+  .sortBar {
+    padding: 20px;
+
+    span {
+      color: #aaa;
+      margin-right: 20px;
+      padding-bottom: 3px;
+      font-weight: bold;
+
+      &.active {
+        color: $menuBackground;
+        border-bottom: 2px solid $menuBackground;
+      }
+    }
+  }
+
+  .sortTitle {
+    margin-right: 30px;
+  }
+}

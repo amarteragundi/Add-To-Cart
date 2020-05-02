@@ -1,16 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
 
+// components
+import Search from "../components/Search";
+import Cart from "../components/Cart";
+
 //constants
-import { HOMEPAGE, CART } from "../consts";
+import { HOMEPAGE } from "../consts";
 
 // actions
-import { searchProduct, switchPage } from "../actions";
+import { switchPage } from "../actions";
 import logo from "../logo.svg";
 
 // css
 import "./css/menu.scss";
-const Menu = ({ selectedPage, searchProduct, switchPage }) => {
+
+const Menu = ({ switchPage }) => {
   return (
     <>
       <div className="menu">
@@ -20,29 +25,17 @@ const Menu = ({ selectedPage, searchProduct, switchPage }) => {
           alt="logo"
           onClick={() => switchPage(HOMEPAGE)}
         />
-        <input
-          type="text"
-          placeholder="Search..."
-          className="menu--search"
-          onChange={e => searchProduct(e.target.value)}
-        />
-        {selectedPage === HOMEPAGE ? (
-          <span onClick={() => switchPage(CART)}>Cart</span>
-        ) : null}
+        <div className="menu--rightsection">
+          <Search />
+          <Cart />
+        </div>
       </div>
     </>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    selectedPage: state.selectedPage
-  };
-};
-
 const mapDispatchtoProps = {
-  searchProduct,
   switchPage
 };
 
-export default connect(mapStateToProps, mapDispatchtoProps)(Menu);
+export default connect(null, mapDispatchtoProps)(Menu);

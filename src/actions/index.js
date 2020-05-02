@@ -7,12 +7,20 @@ import {
   SELECTED_PAGE,
   CART_ITEMS,
   REMOVE_ITEM,
-  MODIFY_QUANTITY
+  MODIFY_QUANTITY,
+  SORT_TYPE
 } from "../consts";
 
 export const fetchProducts = () => {
   return {
     type: FETCH_PRODUCTS
+  };
+};
+
+export const setSort = sort => {
+  return {
+    type: SORT_TYPE,
+    payLoad: sort
   };
 };
 
