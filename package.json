@@ -1,5 +1,4 @@
 {
-  "homepage": "http://amarteragundi.github.io/Add-to-Cart",
   "name": "adobe",
   "version": "0.1.0",
   "private": true,
@@ -40,5 +39,6 @@
   },
   "devDependencies": {
     "gh-pages": "^2.2.0"
-  }
+  },
+  "homepage": "http://amarteragundi.github.io/add-to-cart"
 }
