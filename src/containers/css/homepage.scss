@@ -1,4 +1,5 @@
 $menuBackground: #4269ea;
+
 .sidebar {
   width: calc(15% - 1px);
   float: left;
@@ -213,5 +214,41 @@ button:focus {
     border-left: none;
     cursor: pointer;
     font-weight: bold;
+  }
+
+  .productList__noproducts {
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .sidebar__sliderLabel--bottom {
+    display: none;
+  }
+
+  .sidebar__button {
+    display: none;
+  }
+
+  .sortBarM {
+    background-color: #fff;
+    display: block;
+  }
+
+  .sortTitleM {
+    display: block;
+  }
+
+  .radioGroup {
+    padding: 10px;
+    font-size: 14px;
+
+    label {
+      margin-bottom: 10px;
+      font-size: 14px;
+      display: block;
+    }
   }
 }

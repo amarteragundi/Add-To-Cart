@@ -8,7 +8,8 @@ import {
   SORT_TYPE,
   PRICE_RANGE,
   INCREASE_QUANTITY,
-  DECREASE_QUANTITY
+  DECREASE_QUANTITY,
+  SHOW_MODAL
 } from "../consts";
 
 export const fetchProducts = () => {
@@ -87,6 +88,16 @@ export const decreaseQuantity = (name, quantity) => {
     payLoad: {
       name,
       quantity
+    }
+  };
+};
+
+export const showModal = (type, show) => {
+  return {
+    type: SHOW_MODAL,
+    payLoad: {
+      modal: type,
+      show
     }
   };
 };

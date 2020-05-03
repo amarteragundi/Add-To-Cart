@@ -1,10 +1,14 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
+import { connect } from "react-redux";
+import { showModal } from "../actions";
 
-export default function SortBarMobile() {
+const SortBarMobile = ({ showModal }) => {
   return (
     <div className="sortBarMobile">
-      <div className="sortBarMobile__sort">
+      <div
+        className="sortBarMobile__sort"
+        onClick={() => showModal("sort", true)}>
         <FontAwesome
           className=""
           name="sort"
@@ -12,7 +16,9 @@ export default function SortBarMobile() {
         />
         Sort
       </div>
-      <div className="sortBarMobile__filter">
+      <div
+        className="sortBarMobile__filter"
+        onClick={() => showModal("filter", true)}>
         <FontAwesome
           className=""
           name="filter"
@@ -22,4 +28,10 @@ export default function SortBarMobile() {
       </div>
     </div>
   );
-}
+};
+
+const mapDispatchToProps = {
+  showModal
+};
+
+export default connect(null, mapDispatchToProps)(SortBarMobile);

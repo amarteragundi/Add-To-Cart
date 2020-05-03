@@ -12,6 +12,7 @@ export const SORT_TYPE = "SORT_TYPE";
 export const PRICE_RANGE = "PRICE_RANGE";
 export const INCREASE_QUANTITY = "INCREASE_QUANTITY";
 export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
+export const SHOW_MODAL = "SHOW_MODAL";
 
 // action consts
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS";

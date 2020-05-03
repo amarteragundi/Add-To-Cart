@@ -3,12 +3,16 @@ import { connect } from "react-redux";
 
 import RangeSlider from "@material-ui/core/Slider";
 
-import { filterByPrice } from "../actions";
+import { filterByPrice, showModal } from "../actions";
 
-const Slider = ({ filterByPrice, range }) => {
-  const [defaultValue, setDefaultValue] = useState([6000, 100000]);
+const Slider = ({ filterByPrice, range, showModal }) => {
+  const [defaultValue, setDefaultValue] = useState([range.min, range.max]);
   const handleChange = (event, newValue) => {
     setDefaultValue(newValue);
+  };
+  const cancleModal = {
+    modal: "",
+    show: false
   };
   return (
     <>
@@ -31,6 +35,21 @@ const Slider = ({ filterByPrice, range }) => {
         className="sidebar__button">
         Apply
       </div>
+      <div className="modal__button">
+        <div
+          className="modal__button--cancel"
+          onClick={() => showModal(cancleModal)}>
+          Cancel
+        </div>
+        <div
+          className="modal__button--apply"
+          onClick={() => {
+            filterByPrice(defaultValue);
+            showModal(cancleModal);
+          }}>
+          Apply
+        </div>
+      </div>
     </>
   );
 };
@@ -41,6 +60,7 @@ const mapStateToProps = state => {
   };
 };
 const mapDispatchToProps = {
-  filterByPrice
+  filterByPrice,
+  showModal
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Slider);
