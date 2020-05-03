@@ -2,6 +2,7 @@ import React from "react";
 
 //components
 import SortBar from "../components/Sort";
+import SortBarMobile from "../components/SortBarMobile";
 import ProductList from "../components/ProductList";
 import Slider from "../components/Slider";
 
@@ -24,6 +25,7 @@ const HomePage = () => {
       </div>
       <div className="wrapper">
         <SortBar />
+        <SortBarMobile />
         <div className="productlist">
           <ProductList />
         </div>

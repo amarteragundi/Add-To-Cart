@@ -122,3 +122,96 @@ button:focus {
   justify-content: center;
   align-items: center;
 }
+
+.sortBarMobile {
+  display: none;
+}
+
+//mobile
+
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+
+  .wrapper {
+    width: 99%;
+    .sortBar {
+      display: none;
+    }
+  }
+  .productList__Item {
+    width: calc(50% - 22px);
+    float: left;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-left: none;
+
+    &:nth-child(even) {
+      border-right: none;
+    }
+    img {
+      width: 99%;
+      height: 200px;
+      text-align: center;
+    }
+  }
+
+  .productList__Title {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .productList__Price {
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 5px;
+    margin-bottom: 10px;
+
+    .productList__Price--display {
+      color: #999;
+      font-size: 10px;
+      text-decoration: line-through;
+      margin-right: 10px;
+    }
+
+    .productList__Price--discount {
+      color: #53ae38;
+      font-size: 10px;
+    }
+  }
+  button:focus {
+    outline: 0;
+  }
+  .sortBarMobile {
+    display: block;
+    text-align: center;
+  }
+
+  .sortBarMobile__sort {
+    width: calc(50% - 2px);
+    float: left;
+    padding: 10px 0;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-top: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .sortBarMobile__filter {
+    width: calc(50% - 2px);
+    float: left;
+    padding: 10px 0;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+}
