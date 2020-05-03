@@ -6,7 +6,9 @@ import {
   REMOVE_ITEM,
   MODIFY_QUANTITY,
   SORT_TYPE,
-  PRICE_RANGE
+  PRICE_RANGE,
+  INCREASE_QUANTITY,
+  DECREASE_QUANTITY
 } from "../consts";
 
 export const fetchProducts = () => {
@@ -62,6 +64,26 @@ export const removeFromCart = item => {
 export const modifyQuantity = (name, quantity) => {
   return {
     type: MODIFY_QUANTITY,
+    payLoad: {
+      name,
+      quantity
+    }
+  };
+};
+
+export const increaseQuantity = (name, quantity) => {
+  return {
+    type: INCREASE_QUANTITY,
+    payLoad: {
+      name,
+      quantity
+    }
+  };
+};
+
+export const decreaseQuantity = (name, quantity) => {
+  return {
+    type: DECREASE_QUANTITY,
     payLoad: {
       name,
       quantity

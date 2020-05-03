@@ -10,6 +10,8 @@ export const REMOVE_ITEM = "REMOVE_ITEM";
 export const MODIFY_QUANTITY = "MODIFY_QUANTITY";
 export const SORT_TYPE = "SORT_TYPE";
 export const PRICE_RANGE = "PRICE_RANGE";
+export const INCREASE_QUANTITY = "INCREASE_QUANTITY";
+export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
 
 // action consts
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS";

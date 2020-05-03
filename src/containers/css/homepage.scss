@@ -44,6 +44,7 @@ $menuBackground: #4269ea;
       margin-right: 20px;
       padding-bottom: 3px;
       font-weight: bold;
+      cursor: pointer;
 
       &.active {
         color: $menuBackground;

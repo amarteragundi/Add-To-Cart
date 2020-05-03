@@ -38,7 +38,7 @@ const ProductList = ({
                     <b>{product.discount}% off</b>
                   </span>
                 </div>
-                <div>
+                <div className="productList__buttonWrapper">
                   <button
                     onClick={() => addToCart(product)}
                     className="productList__button ">

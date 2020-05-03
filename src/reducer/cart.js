@@ -1,4 +1,10 @@
-import { CART_ITEMS, REMOVE_ITEM, MODIFY_QUANTITY } from "../consts";
+import {
+  CART_ITEMS,
+  REMOVE_ITEM,
+  MODIFY_QUANTITY,
+  INCREASE_QUANTITY,
+  DECREASE_QUANTITY
+} from "../consts";
 
 export default (state = [], action) => {
   switch (action.type) {
@@ -38,6 +44,31 @@ export default (state = [], action) => {
         {
           ...state.filter(item => item.name === action.payLoad.name)[0],
           quantity: action.payLoad.quantity
+        }
+      ];
+    }
+
+    case INCREASE_QUANTITY: {
+      const newState = [
+        ...state.filter(item => item.name !== action.payLoad.name)
+      ];
+      return [
+        ...newState,
+        {
+          ...state.filter(item => item.name === action.payLoad.name)[0],
+          quantity: action.payLoad.quantity + 1
+        }
+      ];
+    }
+    case DECREASE_QUANTITY: {
+      const newState = [
+        ...state.filter(item => item.name !== action.payLoad.name)
+      ];
+      return [
+        ...newState,
+        {
+          ...state.filter(item => item.name === action.payLoad.name)[0],
+          quantity: action.payLoad.quantity - 1
         }
       ];
     }
