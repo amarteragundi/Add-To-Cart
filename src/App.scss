@@ -1,4 +1,5 @@
 $pagebackground: #f1f3f6;
+$menuBackground: #4269ea;
 
 @font-face {
   font-family: "Verdana";
@@ -12,8 +13,20 @@ $pagebackground: #f1f3f6;
 body {
   background-color: $pagebackground;
 }
+#root {
+  padding-bottom: 60px;
+}
 .modal__button {
   display: none;
+}
+
+.footer {
+  background-color: $menuBackground;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
 }
 @media only screen and (max-width: 600px) {
   .modal {

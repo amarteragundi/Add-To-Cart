@@ -14,11 +14,8 @@ import HomePage from "./containers/HomePage";
 import Cart from "./containers/Cart";
 import Menu from "./containers/Menu";
 
-//actions
-import { showModal } from "./actions";
-
 import "./App.scss";
-const App = ({ selectedPage, showModal, displayModal }) => {
+const App = ({ selectedPage, displayModal }) => {
   return (
     <>
       {displayModal.show ? (
@@ -30,7 +27,12 @@ const App = ({ selectedPage, showModal, displayModal }) => {
       ) : null}
 
       <Menu />
-      {selectedPage === HOMEPAGE ? <HomePage /> : <Cart />}
+      {selectedPage === HOMEPAGE ? (
+        <HomePage style={{ marginBottom: "60px" }} />
+      ) : (
+        <Cart />
+      )}
+      <div className="footer">&#169; Copyright</div>
     </>
   );
 };
@@ -42,6 +44,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = { showModal };
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
